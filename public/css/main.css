@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(0,0,0,.75);
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 20px 20px;
+}
+
+input,
+button,
+select {
+  border: 0;
+  height: 2em;
+  margin: 5px 5px;
+}
+
+input {
+  border-radius: 4px;
+  padding: 0px 9px;
+}
+
+button,
+select {
+  border-radius: 5px;
+  padding: 0px 20px;
+  background-color: rgba(0,0,0,.25);
+  color: rgba(255,255,255,.75);
+}
+
+select {
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAGCAYAAAAYLBS/AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gUcAhgp9eJk8wAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAA5SURBVBjTY2BgYFjFwMDwHw2vYsADmBgYGFZjEV/NQARYRawtMJvQTSbKFmTbVhGjkBmNfw2K8QIAq/oOVglcRUgAAAAASUVORK5CYII=");
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+}
+
+input:focus,
+button:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.5) !important;
+}
+
+input.error,
+button.error,
+select.error {
+  box-shadow: 0 0 0 2px rgba(255,0,0,0.5);
+}

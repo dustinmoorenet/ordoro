@@ -1,0 +1,37 @@
+.order-form {
+  border-radius: 3px;
+  background-color: rgb(92,151,191);
+  display: inline-block;
+  padding: 10px;
+}
+
+.order-form h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 12px 0px;
+  text-align: center;
+}
+
+.order-form h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 20px 14px 5px;
+}
+
+.order-form input[name="shipto.zip"] {
+  width: 75px;
+}
+
+.order-form input[name="items[].quantity"],
+.order-form input[name="items[].price"] {
+  width: 75px;
+}
+
+.order-form .items {
+  padding: 0px 0px 30px;
+}
+
+.order-form button.new-item {
+  float: right;
+  margin-top: -26px;
+}

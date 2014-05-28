@@ -9,13 +9,14 @@ Views.OrderForm = Backbone.View.extend({
   },
 
   template: _.template(
-    '<div><input name="name" required placeholder="Customer Name" /></div>'
+    '<h2>Add Order</h2>'
+  + '<div><input name="customer.name" required placeholder="Customer Name" /></div>'
   + '<h3>Ship To Address</h3>'
-  + '<div><input name="address1" required placeholder="Address 1" /></div>'
-  + '<div><input name="address2" placeholder="Address 2" /></div>'
+  + '<div><input name="shipto.address1" required placeholder="Address 1" /></div>'
+  + '<div><input name="shipto.address2" placeholder="Address 2" /></div>'
   + '<div>'
-  +   '<input name="city" required placeholder="City" />'
-  +   '<select name="state">'
+  +   '<input name="shipto.city" required placeholder="City" />'
+  +   '<select name="shipto.state">'
   +     '<option value="AL">AL</option>'
   +     '<option value="CO">CO</option>'
   +     '<option value="TN">TN</option>'
@@ -24,11 +25,12 @@ Views.OrderForm = Backbone.View.extend({
   +     '<option value="WY">WY</option>'
   +     '<!-- I know there are more states than this -->'
   +   '</select>'
-  +   '<input name="zip" required placeholder="Zipcode" />'
+  +   '<input name="shipto.zip" required placeholder="Zipcode" />'
   + '</div>'
+  + '<h3>Items Ordered</h3>'
   + '<div class="items"></div>'
   + '<button class="new-item">New Item</button>'
-  + '<button class="add">Add</button>'
+  + '<button class="add">Add Order</button>'
   ),
 
   itemTemplate: _.template(
@@ -46,12 +48,16 @@ Views.OrderForm = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
+
+    this.newItem();
   },
 
   newItem: function(evt) {
     this.$('.items').append(this.itemTemplate());
 
-    evt.preventDefault();
+    if (evt)
+      evt.preventDefault();
+
     return false;
   },
 
@@ -63,6 +69,7 @@ console.log('add here', is_valid);
       this.submit();
 
     evt.preventDefault();
+
     return false;
   },
 

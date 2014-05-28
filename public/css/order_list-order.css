@@ -1,0 +1,32 @@
+.order-list .order {
+  position: relative;
+  background-color: rgba(92,151,191,.25);
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  min-height: 84px;
+}
+
+.order-list .order h2 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0px 0px 5px;
+}
+
+.order-list .order .title {
+  line-height: 20px;
+}
+
+.order-list .order .shipto {
+  top: 25px;
+  right: 5px;
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+}
+
+.order-list .order .items {
+  display: inline-block;
+  background-color: white;
+  padding: 5px;
+}
