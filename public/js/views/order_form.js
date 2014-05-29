@@ -5,8 +5,8 @@ Views.OrderForm = Backbone.View.extend({
 
   events: {
     'click header': 'toggleDisplay',
-    'click .add': 'add',
-    'click .new-item': 'newItem'
+    'click .new-item': 'newItem',
+    'submit': 'add'
   },
 
   template: _.template(
@@ -27,12 +27,12 @@ Views.OrderForm = Backbone.View.extend({
   +       '<option value="WY">WY</option>'
   +       '<!-- I know there are more states than this -->'
   +     '</select>'
-  +     '<input name="shipto.zip" required placeholder="Zipcode" />'
+  +     '<input name="shipto.zip" required pattern="\\d{5}(-\\d{4})?" placeholder="Zipcode" title="Enter a valid zipcode" />'
   +   '</div>'
   +   '<h3>Items Ordered</h3>'
   +   '<div class="items"></div>'
-  +   '<button class="new-item">New Item</button>'
-  +   '<button class="add">Add Order</button>'
+  +   '<button type="button" class="new-item">New Item</button>'
+  +   '<button type="submit" class="add">Add Order</button>'
   + '</div>'
   ),
 
@@ -40,8 +40,8 @@ Views.OrderForm = Backbone.View.extend({
     '<div>'
   +   '<input type="hidden" name="items[]" value="{}" />'
   +   '<input name="items[].name" required placeholder="Description" />'
-  +   '<input name="items[].quantity" required placeholder="Quantity" />'
-  +   '<input name="items[].price" required placeholder="Total Price" />'
+  +   '<input name="items[].quantity" required pattern="\\d+" placeholder="Quantity" title="Enter a whole number" />'
+  +   '<input name="items[].price" required pattern="\\d+(\\.\\d{1,2})?" placeholder="Total Price" title="Enter a dollar amount (without the dollar sign)" />'
   + '</div>'
   ),
 
@@ -61,18 +61,10 @@ Views.OrderForm = Backbone.View.extend({
 
   newItem: function(evt) {
     this.$('.items').append(this.itemTemplate());
-
-    if (evt)
-      evt.preventDefault();
-
-    return false;
   },
 
   add: function(evt) {
-    var is_valid = this.$el.validate({submitHandler: function() {}}).valid();
-
-    if (is_valid)
-      this.submit();
+    this.submit();
 
     evt.preventDefault();
 

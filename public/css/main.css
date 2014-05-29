@@ -24,6 +24,8 @@ input {
 }
 
 button,
+input[type="submit"],
+input[type="button"],
 select {
   border-radius: 5px;
   padding: 0px 20px;
@@ -49,8 +51,10 @@ select:focus {
   box-shadow: 0 0 0 2px rgba(0,0,0,0.5) !important;
 }
 
-input.error,
-button.error,
-select.error {
+/** too ugly
+input:invalid,
+button:invalid,
+select:invalid {
   box-shadow: 0 0 0 2px rgba(255,0,0,0.5);
 }
+*/
