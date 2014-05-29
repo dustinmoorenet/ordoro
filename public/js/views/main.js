@@ -1,3 +1,6 @@
+/**
+ * The main view. Everything gets put in here
+ */
 Views.Main = Backbone.View.extend({
   className: 'main',
 
@@ -11,10 +14,16 @@ Views.Main = Backbone.View.extend({
   + '</div>'
   ),
 
+  /**
+   * Initialize view
+   */
   initialize: function() {
     this.render();
   },
 
+  /**
+   * Render structure and create sub views
+   */
   render: function() {
     this.$el.html(this.template());
 

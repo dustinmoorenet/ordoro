@@ -1,3 +1,6 @@
+/**
+ * A form to create new orders
+ */
 Views.OrderForm = Backbone.View.extend({
   tagName: 'form',
 
@@ -45,33 +48,42 @@ Views.OrderForm = Backbone.View.extend({
   + '</div>'
   ),
 
+  /**
+   * Initialize the view
+   */
   initialize: function() {
     this.render();
   },
 
+  /**
+   * Render the form and add one item
+   */
   render: function() {
     this.$el.html(this.template());
 
     this.newItem();
   },
 
+  /**
+   * Toggle the display of the form
+   */
   toggleDisplay: function() {
     this.$el.toggleClass('show');
   },
 
-  newItem: function(evt) {
+  /**
+   * Add a new item
+   */
+  newItem: function() {
     this.$('.items').append(this.itemTemplate());
   },
 
-  add: function(evt) {
-    this.submit();
-
-    evt.preventDefault();
-
-    return false;
-  },
-
-  submit: function() {
+  /**
+   * Submit the form
+   *
+   * @param {event} evt The submit event
+   */
+  submit: function(evt) {
     var order = new Models.Order(Utils.formToObject(this.$el));
 
     this.collection.add(order);
@@ -79,8 +91,15 @@ Views.OrderForm = Backbone.View.extend({
     order.save();
 
     this.reset();
+
+    evt.preventDefault();
+
+    return false;
   },
 
+  /**
+   * Reset the form for a new order
+   */
   reset: function() {
     this.el.reset();
 

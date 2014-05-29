@@ -1,3 +1,6 @@
+/**
+ * A single order on the list
+ */
 Views.OrderList.Order = Backbone.View.extend({
   className: 'order',
 
@@ -25,22 +28,36 @@ Views.OrderList.Order = Backbone.View.extend({
   + '</li>'
   ),
 
+  /**
+   * Initialize the view
+   */
   initialize: function() {
     this.render();
   },
 
+  /**
+   * Render the order and all its items
+   */
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
 
     this.$items = this.$('.items');
 
-    this.renderItems(this.model.get('items'));
+    this.renderItems();
   },
 
-  renderItems: function(items) {
-    items.forEach(this.renderItem.bind(this));
+  /**
+   * Render the items
+   */
+  renderItems: function() {
+    this.model.get('items').forEach(this.renderItem.bind(this));
   },
 
+  /**
+   * Render a single item
+   *
+   * @param {object} item An item that was ordered
+   */
   renderItem: function(item) {
     this.$items.append(this.itemTemplate(item));
   }

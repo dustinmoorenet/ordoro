@@ -1,3 +1,6 @@
+/**
+ * A list of orders
+ */
 Views.OrderList = Backbone.View.extend({
   className: 'order-list',
 
@@ -24,6 +27,9 @@ Views.OrderList = Backbone.View.extend({
   + '</div>'
   ),
 
+  /**
+   * Initialize the view
+   */
   initialize: function() {
     this.render();
 
@@ -33,6 +39,9 @@ Views.OrderList = Backbone.View.extend({
     this.listenTo(this.collection, 'sort', this.renderOrders);
   },
 
+  /**
+   * Render the list structure
+   */
   render: function() {
     this.$el.html(this.template());
 
@@ -41,6 +50,9 @@ Views.OrderList = Backbone.View.extend({
     this.$total_price = this.$('.total-price');
   },
 
+  /**
+   * Render all the orders
+   */
   renderOrders: function() {
     this.$items.empty();
 
@@ -53,12 +65,20 @@ Views.OrderList = Backbone.View.extend({
     this.$order_count.text(this.collection.length);
   },
 
+  /**
+   * Render a single order
+   *
+   * @param {Models.Order} order An order to render
+   */
   renderOrder: function(order) {
     var view = new Views.OrderList.Order({model: order});
 
     this.$items.append(view.$el);
   },
 
+  /**
+   * The sort drop down has changed
+   */
   sortChanged: function() {
     var sort_val = this.$('.sort select').val();
 
