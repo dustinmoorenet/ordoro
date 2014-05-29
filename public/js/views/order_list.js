@@ -2,8 +2,13 @@ Views.OrderList = Backbone.View.extend({
   className: 'order-list',
 
   template: _.template(
-    '<div class="orders-items"></div>'
-  + '<div class="total-price"></div>'
+    '<header>'
+  +   '<div class="left">Order Count: '
+  +     '<span class="order-count"></span></div>'
+  +   '<div class="right">Total order value: $'
+  +     '<span class="total-price"></span></div>'
+  + '</header>'
+  + '<div class="orders-items"></div>'
   ),
 
   initialize: function() {
@@ -17,6 +22,7 @@ Views.OrderList = Backbone.View.extend({
     this.$el.html(this.template());
 
     this.$items = this.$('.orders-items');
+    this.$order_count = this.$('.order-count');
     this.$total_price = this.$('.total-price');
   },
 
@@ -34,6 +40,8 @@ Views.OrderList = Backbone.View.extend({
 
     var price = Math.round(this.collection.total_price * 100) / 100;
 
-    this.$total_price.text(price);
+    this.$total_price.text(price.toFixed(2));
+
+    this.$order_count.text(this.collection.length);
   }
 });

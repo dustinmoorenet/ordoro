@@ -4,33 +4,36 @@ Views.OrderForm = Backbone.View.extend({
   className: 'order-form',
 
   events: {
+    'click header': 'toggleDisplay',
     'click .add': 'add',
     'click .new-item': 'newItem'
   },
 
   template: _.template(
-    '<h2>Add Order</h2>'
-  + '<div><input name="customer.name" required placeholder="Customer Name" /></div>'
-  + '<h3>Ship To Address</h3>'
-  + '<div><input name="shipto.address1" required placeholder="Address 1" /></div>'
-  + '<div><input name="shipto.address2" placeholder="Address 2" /></div>'
-  + '<div>'
-  +   '<input name="shipto.city" required placeholder="City" />'
-  +   '<select name="shipto.state">'
-  +     '<option value="AL">AL</option>'
-  +     '<option value="CO">CO</option>'
-  +     '<option value="TN">TN</option>'
-  +     '<option value="TX">TX</option>'
-  +     '<option value="WI">WI</option>'
-  +     '<option value="WY">WY</option>'
-  +     '<!-- I know there are more states than this -->'
-  +   '</select>'
-  +   '<input name="shipto.zip" required placeholder="Zipcode" />'
+    '<header>Add Order</header>'
+  + '<div class="panel">'
+  +   '<div><input name="customer.name" required placeholder="Customer Name" /></div>'
+  +   '<h3>Ship To Address</h3>'
+  +   '<div><input name="shipto.address1" required placeholder="Address 1" /></div>'
+  +   '<div><input name="shipto.address2" placeholder="Address 2" /></div>'
+  +   '<div>'
+  +     '<input name="shipto.city" required placeholder="City" />'
+  +     '<select name="shipto.state">'
+  +       '<option value="AL">AL</option>'
+  +       '<option value="CO">CO</option>'
+  +       '<option value="TN">TN</option>'
+  +       '<option value="TX">TX</option>'
+  +       '<option value="WI">WI</option>'
+  +       '<option value="WY">WY</option>'
+  +       '<!-- I know there are more states than this -->'
+  +     '</select>'
+  +     '<input name="shipto.zip" required placeholder="Zipcode" />'
+  +   '</div>'
+  +   '<h3>Items Ordered</h3>'
+  +   '<div class="items"></div>'
+  +   '<button class="new-item">New Item</button>'
+  +   '<button class="add">Add Order</button>'
   + '</div>'
-  + '<h3>Items Ordered</h3>'
-  + '<div class="items"></div>'
-  + '<button class="new-item">New Item</button>'
-  + '<button class="add">Add Order</button>'
   ),
 
   itemTemplate: _.template(
@@ -52,6 +55,10 @@ Views.OrderForm = Backbone.View.extend({
     this.newItem();
   },
 
+  toggleDisplay: function() {
+    this.$el.toggleClass('show');
+  },
+
   newItem: function(evt) {
     this.$('.items').append(this.itemTemplate());
 
@@ -64,7 +71,6 @@ Views.OrderForm = Backbone.View.extend({
   add: function(evt) {
     var is_valid = this.$el.validate({submitHandler: function() {}}).valid();
 
-console.log('add here', is_valid);
     if (is_valid)
       this.submit();
 

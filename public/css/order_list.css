@@ -3,3 +3,25 @@
   box-sizing: border;
   width: 400px;
 }
+
+.order-list header {
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  margin: 0px 5px;
+}
+
+.order-list header .left {
+  display: inline-block;
+  width: 50%;
+}
+
+.order-list header .right {
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+}
+
+.order-list header .total-price {
+  
+}

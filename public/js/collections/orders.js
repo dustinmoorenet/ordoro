@@ -14,7 +14,6 @@ Collections.Orders = Backbone.Collection.extend({
   },
 
   onAdd: function(model) {
-console.log('collection.total_price', model.get('total_price'));
     this.total_price += parseFloat(model.get('total_price'));
   }
 });

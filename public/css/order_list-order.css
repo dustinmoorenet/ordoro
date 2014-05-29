@@ -2,31 +2,76 @@
   position: relative;
   background-color: rgba(92,151,191,.25);
   margin: 5px;
-  padding: 5px;
+  padding: 0px 10px;
   border-radius: 3px;
-  min-height: 84px;
+  min-height: 109px;
 }
 
 .order-list .order h2 {
   font-size: 1.1em;
   font-weight: bold;
-  margin: 0px 0px 5px;
+  margin: 0px 0px 10px;
 }
 
-.order-list .order .title {
-  line-height: 20px;
+.order-list .order header {
+  font-weight: bold;
+  line-height: 2em;
+}
+
+.order-list .order .summary {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 60%; 
+  padding-right: 10px;
 }
 
 .order-list .order .shipto {
-  top: 25px;
-  right: 5px;
-  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 40%; 
   background-color: white;
-  padding: 5px;
+  padding: 10px;
+  vertical-align: top;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.order-list .order .shipto div {
+  line-height: 1.2em;
 }
 
 .order-list .order .items {
-  display: inline-block;
+  display: block;
   background-color: white;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.order-list .order .items li {
+  width: 100%;
+  line-height: 1.2em;
+}
+
+.order-list .order .items li span {
+  display: inline-block;
+}
+
+.order-list .order .items li .name {
+  width: 40%;
+}
+
+.order-list .order .items li .quantity {
+  width: 20%;
+}
+
+.order-list .order .items li .price {
+  width: 40%;
+  text-align: right;
+}
+
+.order-list .order .total-price {
+  width: 100%;
+  text-align: right;
+  font-weight: bold;
+  line-height: 2em;
 }

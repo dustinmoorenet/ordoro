@@ -17,11 +17,9 @@ Models.Order = Backbone.Model.extend({
         total_price = 0;
 
     items.forEach(function(item) {
-console.log('item.price=', item.price);
       total_price += parseFloat(item.price);
     });
 
-console.log('total_price', total_price);
     this.set('total_price', total_price);
   }
 });
