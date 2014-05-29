@@ -9,7 +9,7 @@ Views.OrderForm = Backbone.View.extend({
   events: {
     'click header': 'toggleDisplay',
     'click .new-item': 'newItem',
-    'submit': 'add'
+    'submit': 'submit'
   },
 
   template: _.template(
