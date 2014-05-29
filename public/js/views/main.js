@@ -2,9 +2,13 @@ Views.Main = Backbone.View.extend({
   className: 'main',
 
   template: _.template(
-    '<h1>Orders</h1>'
-  + '<form class="order-form"></form>'
-  + '<div class="order-list"></div>'
+    '<div class="wrapper">'
+  +   '<div class="content">'
+  +     '<h1>Orders Management</h1>'
+  +     '<form class="order-form"></form>'
+  +     '<div class="order-list"></div>'
+  +   '</div>'
+  + '</div>'
   ),
 
   initialize: function() {

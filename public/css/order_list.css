@@ -1,27 +1,47 @@
 .order-list {
+  position: relative;
   padding: 10px;
-  box-sizing: border;
-  width: 400px;
+  box-sizing: border-box;
+  width: 422px;
+  margin-top: 20px;
 }
 
-.order-list header {
+.order-list > header {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 2em;
+  margin-left: 5px;
+}
+
+.order-list > .summary {
   font-weight: bold;
   font-size: 1.2em;
   line-height: 1.5em;
   margin: 0px 5px;
 }
 
-.order-list header .left {
+.order-list > .summary .left {
   display: inline-block;
   width: 50%;
 }
 
-.order-list header .right {
+.order-list > .summary .right {
   width: 50%;
   display: inline-block;
   text-align: right;
 }
 
-.order-list header .total-price {
+.order-list > .summary .total-price {
   
+}
+
+.order-list .sort {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  line-height: 2em;
+}
+
+.order-list .sort span {
+  font-weight: bold;
 }

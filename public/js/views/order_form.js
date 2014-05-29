@@ -77,5 +77,15 @@ Views.OrderForm = Backbone.View.extend({
     this.collection.add(order);
 
     order.save();
+
+    this.reset();
+  },
+
+  reset: function() {
+    this.el.reset();
+
+    this.$('.items').empty();
+
+    this.newItem();
   }
 });
