@@ -1,3 +1,4 @@
+## Installation
 Clone this repo or unzip the archive.
 
 You will need Node JS installed.
